@@ -47,7 +47,7 @@ def construct_connections(txt='data.txt'):
             nodeA, nodeB = line.split()[1:3]
             show_results(pathing(nodeA, nodeB, connections, 'price'), 'Price')
         elif line.startswith('?'):
-            pass  # WTF?
+            pass
         elif line.startswith('*'):
             dump_connections(connections)
         else:
