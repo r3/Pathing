@@ -1,0 +1,23 @@
+Author: Ryan Roler (ryan.roler@gmail.com)
+
+Using test data from the CSE wiki, this program will create vertices using the
+class Connection and store them in a dictionary keyed to the initial vertex.
+Using Dijkstra's algorithm, the program will path to the requested destination
+vertex. Requests will be made in a similar manner to construction of Connection
+objects using a data script. The script follows basic guidelines in encoding
+both construction and path request data. Connections (vertices) will have two
+values which can be used to compute pathing costs known as 'price' and 'time,'
+both of which have unique request codes. Further information on the script can
+be found at the wiki:
+
+http://cse222.wikispaces.com/Route+Planning
+
+Todo:
+Test multiple lowest cost routes. Currently, my implementation does not allow
+for multiple best routes to be computed.
+
+Consider threading. Perhaps pathing can be done from the destination and the
+starting vertex simultaneously. The threads would need a way to communicate
+and determine if their paths intersect, at which point they would concatenate
+the starting path with the reversed destination path and return the sum of
+their cost.
