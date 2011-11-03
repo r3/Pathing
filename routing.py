@@ -56,21 +56,21 @@ def construct_connections(txt='data.txt'):
             raise Exception("Improperly formatted input: line {}.".format(
                             num+1))
 
-def dijkstra(start, destination, collection, key):
+def dijkstra(start, destination, connections, key):
     def get_cheapest(cost, visited):
-        for node in sorted(cost, key=lambda x: cost[x]):
+        for node in sorted(cost, key=cost.get):
             if not node in visited:
                 return node
 
     cost = {start:0}
     path = {start:[start]}
-    visited = set()
+    visited = list()
     current = start
 
     while current != destination:
-        visited.add(current)
+        visited.append(current)
         try:
-            for adjacent in collection[current]:
+            for adjacent in connections[current]:
                 traversal_cost = cost[current] + getattr(adjacent, key)
                 if cost.get(adjacent.end, float("inf")) > traversal_cost:
                     cost[adjacent.end] = traversal_cost
