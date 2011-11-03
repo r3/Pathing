@@ -1,0 +1,38 @@
+Some queries might come up with multiple choices, some might come up with no answers. Account for this.
+
+Maybe present a threshold, or the top three or so.
+
+Maybe they want to go through a certain point in route to the destination. Can you 'pin' it?
+
+http://www.policyalmanac.org/games/aStarTutorial.htm
+http://en.wikipedia.org/wiki/A*_search_algorithm
+http://code.activestate.com/recipes/577892-dijkstra-shortest-path-implementation/
+http://videolectures.net/mit6046jf05_demaine_lec17/ @ 45:11 (Correctness)
+
+Module 1:
+define connection class
+    from:
+    to:
+    cost:
+    time:
+
+define line feeding function
+
+parse lines from specs:
+
+init dict
+
+iterate over feeding function
+    if line[0] is '=':
+        build two connections, one from line[1] to line[2], another from line[2] to line[1]
+    elif line[0] is '>':
+        build one connection from line[1] to line[2]
+    elif line[0] is '/' and line[1] is '*':
+        pass
+    elif line[0] is '@':
+        run algorithm based on speed (time) values
+    elif line[0] is '$':
+        run algorithm based on cost values
+
+OUTPUT:
+List visited nodes and total values accumulated (time & money, no matter the key for the algorithm)

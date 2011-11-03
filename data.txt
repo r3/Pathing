@@ -1,0 +1,46 @@
+/* Here is some practice data.
+/* The other map, Map Example 2 (will soon) contain the "REAL" problems to submit as homework answers
+/* In this fanciful world, cities happen to be distinguished by single letter names
+/* and air lines charge by the minute: the longer the flight, the more it costs
+/* The time units are obviously NOT realistic numbers of minutes
+- A B 12 12
+/* SIlly wiki: that line was supposed to begin with GreaterThan sign: it is too special a character. Use -
+- B A 12 14
+= A C 25 25
+= A F 30 30
+= B C 11 11
+= C E 20 3
+= E H 6 6
+= H A 32 32
+= D C 9 9
+= C G 28 28
+= Z A 9 9
+= F D 2 2
+= H I 5 5
+= G I 4 4
+= J G 3 3
+= J K 6 6
+= W U 13 13
+= F A 29 29
+= L K 7 7
+= V T 7 7
+= V W 5 5
+= M L 5 5
+= T W 8 8
+= U T 5 5
+= N M 4 4
+= U V 6 6
+*
+$ A Z
+$ A C
+$ A J
+$ Z D
+$ A N
+$ T V
+$ N W
+@ G C
+? A C
+? B G
+- N U 55 123
+@ N W
+$ W N
