@@ -31,23 +31,23 @@ def construct_connections(txt='data.txt'):
 
     for num, line in enumerate(feed_lines(txt)):
         if line.startswith('='):
-            nodeA, nodeB, price, time = line.split()[1:]
+            nodeA, nodeB, price, time = line.split()[1:5]
             connections.setdefault(nodeA, []).append(
                                Connection(nodeA, nodeB, int(price), int(time)))
             connections.setdefault(nodeB, []).append(
                                Connection(nodeB, nodeA, int(price), int(time)))
         elif line.startswith('-'):
-            nodeA, nodeB, price, time = line.split()[1:]
+            nodeA, nodeB, price, time = line.split()[1:5]
             connections.setdefault(nodeA, []).append(
                                Connection(nodeA, nodeB, int(price), int(time)))
         elif line.startswith('/*'):
             pass
         elif line.startswith('@'):
-            nodeA, nodeB = line.split()[1:]
-            show_results(dijkstra(nodeA, nodeB, connections, 'time'), 'Time')
+            nodeA, nodeB = line.split()[1:3]
+            show_results(pathing(nodeA, nodeB, connections, 'time'), 'Time')
         elif line.startswith('$'):
-            nodeA, nodeB = line.split()[1:]
-            show_results(dijkstra(nodeA, nodeB, connections, 'price'), 'Price')
+            nodeA, nodeB = line.split()[1:3]
+            show_results(pathing(nodeA, nodeB, connections, 'price'), 'Price')
         elif line.startswith('?'):
             pass  # WTF?
         elif line.startswith('*'):
@@ -55,30 +55,38 @@ def construct_connections(txt='data.txt'):
         else:
             raise Exception("Improperly formatted input: line {}.".format(
                             num+1))
+    return connections
 
-def dijkstra(start, destination, connections, key):
-    def get_cheapest(cost, visited):
+def pathing(start, destination, connections, key):
+    def serve_cheapest(cost, visited):
         for node in sorted(cost, key=cost.get):
-            if not node in visited:
-                return node
+            if (not node in visited) and (node in connections):
+                yield node
 
     cost = {start:0}
     path = {start:[start]}
     visited = list()
     current = start
 
-    while current != destination:
+    while visited != connections.keys():
         visited.append(current)
-        try:
-            for adjacent in connections[current]:
+        available = connections[current]
+        if available:
+            for adjacent in available:
                 traversal_cost = cost[current] + getattr(adjacent, key)
                 if cost.get(adjacent.end, float("inf")) > traversal_cost:
                     cost[adjacent.end] = traversal_cost
                     path[adjacent.end] = path[current] + [adjacent.end]
-            current = get_cheapest(cost, visited)
-        except KeyError:
-            print("Error: No path from {} to {}\n".format(start, destination))
-            return None
+                pool = serve_cheapest(cost, visited)
+        try:
+            current = next(pool)
+        except StopIteration:
+            if destination in path:
+                return path[destination], cost[destination]
+            else:
+                print("Cannot reach {} from {}.\n".format(destination, start))
+                return None
+
     return path[current], cost[current]
 
 if __name__ == '__main__':

@@ -1,46 +1,89 @@
-/* Here is some practice data.
-/* The other map, Map Example 2 (will soon) contain the "REAL" problems to submit as homework answers
-/* In this fanciful world, cities happen to be distinguished by single letter names
-/* and air lines charge by the minute: the longer the flight, the more it costs
-/* The time units are obviously NOT realistic numbers of minutes
-- A B 12 12
-/* SIlly wiki: that line was supposed to begin with GreaterThan sign: it is too special a character. Use -
-- B A 12 14
-= A C 25 25
-= A F 30 30
-= B C 11 11
-= C E 20 3
-= E H 6 6
-= H A 32 32
-= D C 9 9
-= C G 28 28
-= Z A 9 9
-= F D 2 2
-= H I 5 5
-= G I 4 4
-= J G 3 3
-= J K 6 6
-= W U 13 13
-= F A 29 29
-= L K 7 7
-= V T 7 7
-= V W 5 5
-= M L 5 5
-= T W 8 8
-= U T 5 5
-= N M 4 4
-= U V 6 6
+/* This is the "real" data set to use to prove your homework
+/* Most times include only one hour of airport time/flight.  Good luck with that.
+- PDX ORD 233 295 OHare
+- ORD PDX 233 328
+- ORD PHX 156 288
+- PHX PDX 120 234
+- PHX ORD 156 256
+- PDX PHX 120 209
+- PHX ATL 183 287
+- ATL PHX 183 322
+- PDX ATL 538 336
+- ATL PDX 538 396
+- PHX BOI 185 189
+- BOI PHX 185 178
+- BOI SJC 150 166  San Jose, CA
+= HNL KOA 86 95
+- HIO PHX 355 125
+- PHX HIO 355 144
+- SJC BOI 150 179
+- SEA BOI 107 146
+- BOI SEA 107 160
+- PDX SEA 95 112
+- SEA PDX 95 107
+- DEN OMA 68 145
+- MLI ORD 236 105 Moline
+- ORD MLI 236 105 
+- ALW SEA 80 124 Walla*2
+- SEA ALW 80 119
+- BFF DEN 121 115
+- PUW SEA 110 134
+- SEA PUW 110 123
+- GEG SEA 80 129 Spokane
+- SEA GEG 80 120
+- GEG PDX 65 145
+- PDX GEG 65 129
+- DLS Dufur 110 5 Pack your 'chute: you can't land there (and ever take off again)
+= VUO PDX 121 59 Pearson Field in VancUOver. Take a cab?
+= HIO PDX 89 30
+= TTD PDX 125 62  Troutdale
+= VUO TTD 23 25  Have plane?  Well, travel.
+= VUO HIO 29 26
+= TTD DLS 40 55
+= TTD S33 53  75  Madras, OR
+- DEN FAR 219 171
+- FAR DEN 219 189
+- DEN MLI 171 176
+- MLI DEN 171 203
+- MLI DFW 206 205
+- DFW CID 206 180
+- MSP DEN 95 190
+- DEN MSP 95 175
+- MSP PDX 168 292
+- PDX MSP 168 256
+- SEA PSC 81 112
+- PSC SEA 81 122
+- LWS PUW 100 57
+- LWS BOI 106 110
+- BOI LWS 106 117
+- LWS SLC 155 152
+- SLC LWS 155 157
+- DEN SLC 62 123167
+- PVU DEN 62 143
+- PHX DFW 168 195
+- DFW PHX 168 216
+- PHX SLC 100 162
+- SLC PHX 100 167
+- PHX OMA 133 219
+- EUG SLC 140 174
+- SLC EUG 140 185
+= EUG PDX 85 90
+- EUG DEN 231 214
+- DEN EUG 231 238
+= EUG SEA 124 125
+- GEG MSP 180 236
+- MSP GEG 180 262
 *
-$ A Z
-$ A C
-$ A J
-$ Z D
-$ A N
-$ T V
-$ N W
-@ G C
-? A C
-? B G
-- N U 55 123
-@ N W
-$ W N
+$ PDX ATL
+@ PDX ATL
+$ VUO DFW
+@ VUO DFW
+$ PDX DFW
+@ PDX DFW
+$ VUO MLI
+@ VUO MLI
+$ PDX JFK
+? PUW FAR
+$ EUG PUW
+@ EUG OMA
+$ EUG KOA
