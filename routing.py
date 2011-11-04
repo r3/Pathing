@@ -10,8 +10,7 @@ class Connection():
 
 def dump_connections(log):
     for airport, connections in log.items():
-        print("{}:\n \t{}".format(airport, '\n\t'.join(map(str, connections))))
-    print()
+        print("{}:\n \t{}\n".format(airport, '\n\t'.join(map(str, connections))))
 
 def construct_connections(txt='data.txt'):
     def feed_lines(txt):
@@ -24,8 +23,7 @@ def construct_connections(txt='data.txt'):
         else:
             path, cost = func_return
             print("{}: {}".format(key, cost))
-            print("Path:\n\t{}".format(', '.join(path)))
-            print()
+            print("Path:\n\t{}\n".format(', '.join(path)))
 
     connections = dict()
 
